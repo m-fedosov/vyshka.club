@@ -1,3 +1,8 @@
+import datetime
+from datetime import date
+
+import random
+
 from django.conf import settings
 from django.db.models import Q
 from django.shortcuts import redirect, render
@@ -11,7 +16,69 @@ from notifications.telegram.users import notify_user_auth
 from users.models.user import User
 
 
-def email_login(request):
+def email_auth(request):  # функция создания нового челика
+    if request.method != "POST":
+        return redirect("login")
+    goto = request.POST.get("goto")
+    email = request.POST.get("email")
+    if not email:
+        return redirect("login")
+    email = email.strip()
+    user = User.objects.filter(Q(email=email.lower()) | Q(slug=email)).first()
+    if not user and ((email[-7:] == ".hse.ru") or (email[-7:] == "@hse.ru")):  # если чел ещё не зарегался и он из вышки, то создаём его профиль
+        user = User()
+        user.email = email.lower()
+        user.slug = user.email[:user.email.index("@")] + str(random.randint(0, 1024))
+        user.is_email_unsubscribed = True
+        user.is_email_verified = False
+        user.moderation_status = User.MODERATION_STATUS_INTRO
+        user.full_name = user.email[:user.email.index("@")]
+        user.avatar = None
+        user.company = None
+        user.position = None
+        user.city = None
+        user.country = None
+        user.geo = None
+        user.bio = None
+        user.contact = None
+        user.email_digest_type = User.EMAIL_DIGEST_TYPE_NOPE
+        user.telegram_id = None
+        user.telegram_data = None
+        user.membership_platform_data = None
+        user.membership_started_at = datetime.datetime.now()
+        user.membership_expires_at = date.fromisoformat('3022-04-25')
+        user.save()
+        return render(request, "payments/messages/done.html", {
+                "email": user.email,
+                "goto": goto,
+                "restore": user.deleted_at is not None,
+            })
+    elif user:  # такой пользователь уже есть
+        return render(request, "error.html", {
+                "title": "Такой пользователь уже зарегистрирован в клубе 🦩",
+            "message":  "Почта, которая была введена на странице для <b>регистрастрации</b>, уже привязана к аккаунту клуба."
+                        "<p></p>"
+                        "Помни: одна почта вышки - один аккаунт"
+                        "<p></p>"
+                        "Для входа в этот аккаунт нужно ввести email на этой 👉 <a href='http://127.0.0.1:8000/auth/login/'>странице</a> 👈"
+                        "<p></p>"
+                        "Если тебе нужна помощь, напиши нам, попробуем помочь."
+            }, status=404)
+    else:  # пользователь ввёл не почту вышки
+        return render(request, "error.html", {
+                "title": "Извини 🔒",
+            "message":  "Клуб - закрытое сообщество для студентов <a href='https://hse.ru'><b>Вышки ⚰</b></a>"
+                        "<p></p>"
+                        "Для регистрации в клубе введи <b>корпоративную почту ВШЭ</b>, например:"
+                        "<ul><li>email@hse.ru</li>"
+                        "<li>name@miem.hse.ru</li>"
+                        "<li>nice@edu.hse.ru</li></ul>"
+                        "<p></p>"
+                        "Если тебе нужна помощь, напиши нам, попробуем помочь."
+            }, status=404)
+
+
+def email_login(request):  # функция авторизации пользователя
     if request.method != "POST":
         return redirect("login")
 
@@ -30,7 +97,7 @@ def email_login(request):
             return render(request, "error.html", {
                 "title": "Такого юзера нет 🤔",
                 "message": "Пользователь с таким кодом не найден. "
-                           "Попробуйте авторизоваться по обычной почте или юзернейму.",
+                           "Попробуйте авторизоваться по вышкинской почте или юзернейму.",
             }, status=404)
 
         if user.deleted_at:
@@ -47,10 +114,14 @@ def email_login(request):
         user = User.objects.filter(Q(email=email_or_login.lower()) | Q(slug=email_or_login)).first()
         if not user:
             return render(request, "error.html", {
-                "title": "Такого юзера нет 🤔",
-                "message": "Пользователь с такой почтой не найден в списке членов Клуба. "
-                           "Попробуйте другую почту или никнейм. "
-                           "Если совсем ничего не выйдет, напишите нам, попробуем помочь.",
+                "title": "Кто ты такой 🦚",
+                "message": "Пользователь с такой почтой не найден в списке членов Клуба."
+                        "<ul><li>Попробуйте <b>вышкинскую</b> почту или никнейм(если ты уже состоишь в клубе): </li>"
+                        " <ul><li>email@hse.ru</li>"
+                        " <li>name@miem.hse.ru</li>"
+                        " <li>nice@edu.hse.ru</li></ul>"
+                        "<li>Если совсем ничего не выйдет, напишите нам, попробуем помочь.</li>"
+                        "</ul>",
             }, status=404)
 
         code = Code.create_for_user(user=user, recipient=user.email, length=settings.AUTH_CODE_LENGTH)

@@ -1,65 +1,21 @@
 {% extends "message.html" %}
 
 {% block message %}
-    <h2>Успех 🤘</h2>
+    <h2>Ура 🐣</h2>
+    <p>
+        Авторизуйся по кнопке ниже для заполнения своего профиля :)
+    </p>
+    <div class="login-services">
+        <div class="block login-service">
+            <div class="login-service-title">Твоя почта для входа</div>
+            <div class="login-service-form">
+                <form action="{% url "email_login" %}" method="post">
+                    <input type="email" name="email_or_login" value="{{ email|default:"" }}" placeholder="name@anything.hse.ru" class="login-email" required>
+                    {% if goto %}<input type="hidden" name="goto" value="{{ goto }}">{% endif %}
+                    <button type="submit" class="button login-button" style="min-width: 200px;">🤙 Войти</button>
+                </form>
+            </div>
+        </div>
 
-    {% if "invite" in payment.product_code %}
-        <p>
-            {% if payment.data.is_created %}
-                Вы успешно пригласили друга <strong>{{ payment.invited_user_email }}</strong>
-            {% else %}
-                Вы успешно продлили аккаунт другу <strong>{{ payment.invited_user_email }}</strong>
-            {% endif %}
-        </p>
-
-        <p>
-            Сейчас ему и вам упадут на почту все нужные подтверждения и инструкции что делать дальше.
-            Можете написать ему сами и порадовать от себя.
-        </p>
-
-        <br>
-
-        <p>
-            <a href="{% url "profile" payment.user.slug %}" class="button">Вернуться в свой профиль</a>
-        </p>
-
-    {% elif payment.user.is_club_member %}
-        <p>
-            Ваша клубная карта продлена!
-        </p>
-
-        <p>
-            Иногда банки обрабатывают транзакции с задержкой, потому не пугайтесь, если циферка в профиле обновится не сразу.
-            У нас всё записано и в случае любых проблем, поддержка Клуба всегда поможет вам :)
-        </p>
-
-        {% if features.PATREON_AUTH_ENABLED %}
-            <p>
-                Не забудьте <a href="https://www.patreon.com/pledges" target="_blank" rel="nofollow">отписаться от патреона</a>, если переходили с него.
-            </p>
-        {% endif %}
-
-        <br>
-
-        <p>
-            <a href="{% url "profile" payment.user.slug %}" class="button">Вернуться в свой профиль</a>
-        </p>
-    {% else %}
-        <p>
-            Теперь у вас есть аккаунт в Клубе! Рады видеть :)
-        </p>
-
-        <p>
-            Почта для входа: <strong>{{ payment.user.email }}</strong>
-        </p>
-
-        <p>
-            Банк еще обрабатывает транзакцию, но вы уже можете начать заполнять свой профиль чтобы рассказать другим участникам Клуба о себе 👇
-            <br><br>
-        </p>
-
-        <p>
-            <a href="{% url "login" %}?email={{ payment.user.email|urlencode }}" class="button">Войти в свой профиль</a>
-        </p>
-    {% endif %}
+    </div>
 {% endblock %}

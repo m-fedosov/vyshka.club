@@ -4,32 +4,23 @@
 
 {% block content %}
     <div class="content join">
-        <div class="join-title"><a href="{% url "index" %}">Вступить в Клуб 🎩</a></div>
-
+        <div class="join-title"><a href="{% url "index" %}">Welcome to the Club Birdy 🐦</a></div>
         <div class="join-description">
-            Всегда рады новым членам! Напоминаем, у нас тут не любят анонимов, поэтому мы просим всех новичков заполнить профиль и честно рассказать о себе.
+            В нашем гнезде найдётся место для каждого Вышкинца! Тем не менее, анонимных пташек мы тут не приветсвуем, поэтому мы просим всех новичков заполнить профиль и честно рассказать о себе.
             <br><br>
-            Если вам не подходят наши <a href="{% url "docs" "about" %}" target="_blank">правила</a>, вы боитесь деанона или пришли «просто почитать посты» рекомендуем сэкономить нам всем время и пойти на <a href="https://ok.ru/" rel="nofollow">Одноклассники</a>, там как-то с этим попроще.
+            Если вам не подходят наши <a href="{% url "docs" "about" %}" target="_blank">правила</a>, вы боитесь деанона или прилетели «просто почитать посты» рекомендуем сэкономить нам всем время и пойти на <a href="https://vk.ru/" rel="nofollow">ВКонтач</a>, там тоже есть немало Вышкинских сообществ.
         </div>
-
-        <form action="{% url "pay" %}" method="get">
-
-        <div class="join-subtitle" id="select_package">Пакет брать будем?</div>
-
-        {% include "payments/blocks/packages.html" %}
-
-        <div class="join-subtitle">Ваш e-mail</div>
-
+        <form action="{% url "email_auth" %}" method="post">
+        <div class="join-subtitle">Для регистрации введи свою почту вышки или ник</div>
         <div class="block join-email">
             <div class="join-email-form">
-                <label>Вот сюда 👉&nbsp;&nbsp;<input type="email" name="email" placeholder="your@gmail.com" required></label>
+            <label>Вот сюда 👉&nbsp;&nbsp;<input type="email" name="email" value="{{ email|default:"" }}" placeholder="name@anything.hse.ru" class="login-email" style="min-width: 400px;" required></label>
             </div>
         </div>
-
+        {% if goto %}<input type="hidden" name="goto" value="{{ goto }}">{% endif %}
         <label class="join-consent"><input type="checkbox" name="iconsent" value="true" required> &larr; я даю согласие на обработку <a href="{% url "docs" "privacy_policy" %}" target="_blank">персональных данных</a>, соглашаюсь с <a href="{% url "docs" "about" %}" target="_blank">правилами</a> Клуба и помню, что мне придётся написать интро и пройти модерацию</label>
-
-        <button type="submit" class="button button-big join-button">Перейти к оплате</button>
-
+        <button type="submit" class="button join-button" style="min-width: 200px;">🤙 Зарегистрироваться</button>
         </form>
+        </div>
     </div>
 {% endblock %}
