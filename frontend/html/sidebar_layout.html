@@ -82,14 +82,14 @@
             </ul>
         </div>
 
-        <div class="feed-sidebar-block">
-            <div class="feed-sidebar-header">Комнаты</div>
-            <div class="feed-sidebar-topics">
-                {% for topic in topics %}
-                    {% include "posts/widgets/topic.html" with topic=topic type="card" %}
-                {% endfor %}
-            </div>
-        </div>
+{#        <div class="feed-sidebar-block">#}
+{#            <div class="feed-sidebar-header">Комнаты</div>#}
+{#            <div class="feed-sidebar-topics">#}
+{#                {% for topic in topics %}#}
+{#                    {% include "posts/widgets/topic.html" with topic=topic type="card" %}#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
     </aside>
     <div class="feed-main">
         {% block feed_content %}
