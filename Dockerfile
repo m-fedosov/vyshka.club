@@ -22,7 +22,7 @@ COPY . /app
 COPY etc/crontab /etc/crontab
 RUN chmod 600 /etc/crontab
 
-RUN cd frontend && npm install && npm run build && cd ..
+RUN cd frontend && npm ci install && npm ci run build && cd ..
 
 RUN pip3 install pipenv==2021.5.29
 RUN sh -c 'if [ "$MODE" = 'production' ]; then pipenv lock --keep-outdated --requirements > requirements.txt; fi'
