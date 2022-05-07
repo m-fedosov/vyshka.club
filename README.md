@@ -1,12 +1,12 @@
 <div align="center">
   <br>
   <img src="frontend/static/images/logo/logo-256.png" alt="">
-  <h1>vas3k.club</h1>
+  <h1>vyshka.club</h1>
 </div>
 
-Welcome to the [vas3k.club](https://vas3k.club) codebase. We're building our own little IT-lifestyle community. We've opensourced the code so that every member could contribute or implement a feature that they want.
+Welcome to the [vyshka.club](https://vyshka.club:8000) codebase. We're building our own little IT-lifestyle community. We've opensourced the code so that every member could contribute or implement a feature that they want.
 
-[vas3k.club](https://vas3k.club) is a platform with private and paid memberships that has emerged around the [vas3k.ru](https://vas3k.ru) blog and satellite chat rooms. It's not a typical IT community with tutorials and framework reviews, but rather more of a lifestyle one. We are trying to build a peaceful and useful ecosystem, which the Internet has lost a long ago. Therefore, we carefully select and filter new members and do not seek wild growth.
+ <!-- [vyshka.club](https://vyshka.club:8000) is a platform with private and paid memberships that has emerged around the [vas3k.ru](https://vas3k.ru) blog and satellite chat rooms. It's not a typical IT community with tutorials and framework reviews, but rather more of a lifestyle one. We are trying to build a peaceful and useful ecosystem, which the Internet has lost a long ago. Therefore, we carefully select and filter new members and do not seek wild growth. -->
 
 Our values: honesty, fair share, respect for other members, rationality, friendliness and usefulness. We have a zero-tolerance policy on anonymity, insults and toxicity. But we always try to stay in touch with reality, so we're also not tolerant of witch hunting and call-out culture.
 
@@ -31,8 +31,8 @@ Feel free to propose "state of the art" refactorings for UI or backend code if y
 2. Clone the repo
 
     ```sh
-    $ git clone https://github.com/vas3k/vas3k.club.git
-    $ cd vas3k.club
+    $ git clone https://github.com/m-fedosov/vyshka.club.git
+    $ cd vyshka.club
     ```
 
 3. Run
@@ -102,17 +102,17 @@ Three huge requests for everyone:
 
 Contributions are welcome.  
 
-The main point of interaction is the [Issues page](https://github.com/vas3k/vas3k.club/issues).
+The main point of interaction is the [Issues page](https://github.com/m-fedosov/vyshka.club/issues).
 
 Here's our contribution guidelines — [CONTRIBUTING.md](CONTRIBUTING.md).
 
-We also run the public [Github Project Board](https://github.com/vas3k/vas3k.club/projects/3) to track progress and develop roadmaps.
+<!-- We also run the public [Github Project Board](https://github.com/vas3k/vas3k.club/projects/3) to track progress and develop roadmaps. -->
 
 > The official development language at the moment is Russian, because 100% of our users speak it. We don't want to introduce unnecessary barriers for them. But we are used to writing commits and comments in English and we won't mind communicating with you in it.
 
 ### 😎 I want to write some code
 
-- Open our [Issues page](https://github.com/vas3k/vas3k.club/issues) to see the most important tickets at top. 
+- Open our [Issues page](https://github.com/m-fedosov/vyshka.club/issues) to see the most important tickets at top. 
 - Pick one issue you like and **leave a comment** inside that you're getting it.
 
 **For big changes** open an issues first or (if it's already opened) leave a comment with brief explanation what and why you're going to change. Many tickets hang open not because they cannot be done, but because they cause many logical contradictions that you may not know. It's better to clarify them in comments before sending a PR.
@@ -136,15 +136,15 @@ We also run the public [Github Project Board](https://github.com/vas3k/vas3k.clu
 - [¯\\_(ツ)\_/¯](https://github.com/vas3k/vas3k.club/labels/%C2%AF%5C_%28%E3%83%84%29_%2F%C2%AF) - special label for **questionable issues**. (should be closed in 60 days of inactivity)
 - **[no label]** — ticket is new, unclear or still not reviewed. Feel free to comment it but **wait for our maintainers' decision** before starting to implement it.
 
-
+<!-- 
 ## 🔐 Security and vulnerabilities
 
 If you think you've found a critical vulnerability that should not be exposed to the public yet, you can always email me directly on Telegram [@vas3k](https://t.me/vas3k) or by email: [me@vas3k.ru](mailto:me@vas3k.ru).
 
-Please do not test vulnerabilities in public. If you start spamming the website with "test-test-test" posts or comments, our moderators will ban you even if you had good intentions.
+Please do not test vulnerabilities in public. If you start spamming the website with "test-test-test" posts or comments, our moderators will ban you even if you had good intentions. -->
 
 
-## 👍 Our top contributors
+<!-- ## 👍 Our top contributors
 
 Take some time to press F and give some respects to our [best contributors](https://github.com/vas3k/vas3k.club/graphs/contributors), who spent their own time to make the club better.
 
@@ -155,7 +155,7 @@ Take some time to press F and give some respects to our [best contributors](http
 - [@fr33mang](https://github.com/fr33mang)
 - [@Vostenzuk](https://github.com/Vostenzuk)
 - [@nikolay-govorov](https://github.com/nikolay-govorov)
-- [@FMajesty](https://github.com/FMajesty)
+- [@FMajesty](https://github.com/FMajesty) -->
 
 
 ## 👩‍💼 License 
@@ -164,6 +164,6 @@ Take some time to press F and give some respects to our [best contributors](http
 
 In other words, you can use the code for private and commercial purposes with an author attribution (by including the original license file or mentioning the Club 🎩).
 
-Feel free to contact us via email [club@vas3k.club](mailto:club@vas3k.club).
+<!-- Feel free to contact us via email [club@vas3k.club](mailto:club@vas3k.club). -->
 
 ❤️
