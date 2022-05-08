@@ -13,7 +13,7 @@
             <div class="login-code-title">🤘 Вам отправлен код!</div>
 
             <div class="login-code-description">Введите секретный код доступа к Клубу, который упал вам на почту или в бота</div>
-
+            
             <div class="login-code-form">
                 <form action="{% url "email_login_code" %}" method="get">
                     <input type="text" inputmode="numeric" pattern="[0-9]*" name="code" placeholder="000000" class="login-code-input" autocomplete="off" autofocus>
@@ -23,6 +23,10 @@
                     <button type="submit" class="button login-code-button">Войти</button>
                 </form>
             </div>
+        </div>
+
+        <div class="block login-attention">
+            <div class="login-attention-title">Код для входа может находится в папке "Спам"</div>
         </div>
     </div>
 {% endblock %}
