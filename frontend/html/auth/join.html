@@ -14,7 +14,8 @@
         <div class="join-subtitle">Для регистрации введи свою почту вышки</div>
         <div class="block join-email">
             <div class="join-email-form">
-            <label>Вот сюда 👉&nbsp;&nbsp;<input type="email" name="email" value="{{ email|default:"" }}" placeholder="name@anything.hse.ru" class="login-email" style="min-width: 400px;" required></label>
+            <label>Вот сюда 👉&nbsp;&nbsp;<input type="email" name="email" placeholder="name@anything.hse.ru" required></label>
+            <!-- <label>Вот сюда 👉&nbsp;&nbsp;<input type="email" name="email" value="{{ email|default:"" }}" placeholder="name@anything.hse.ru" class="login-email" style="min-width: 400px;" required></label> -->
             </div>
         </div>
         {% if goto %}<input type="hidden" name="goto" value="{{ goto }}">{% endif %}
