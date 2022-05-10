@@ -6,7 +6,7 @@
 
 Welcome to the [vyshka.club](https://vyshka.club:8000) codebase. We're building our own little IT-lifestyle community. We've opensourced the code so that every member could contribute or implement a feature that they want.
 
- <!-- [vyshka.club](https://vyshka.club:8000) is a platform with private and paid memberships that has emerged around the [vas3k.ru](https://vas3k.ru) blog and satellite chat rooms. It's not a typical IT community with tutorials and framework reviews, but rather more of a lifestyle one. We are trying to build a peaceful and useful ecosystem, which the Internet has lost a long ago. Therefore, we carefully select and filter new members and do not seek wild growth. -->
+[vyshka.club](https://vyshka.club:8000) is a platform with a closed membership that has emerged around the university [HSE] (https://hse.ru) and satellite student communities. This community is about student lifestyle. The goal of the project is to unite students on one platform, and not in small groups of student organizations. Nevertheless, it is important that each member of the club is adequate and interesting. Therefore, we carefully select and filter new members and do not aim for wild growth.
 
 Our values: honesty, fair share, respect for other members, rationality, friendliness and usefulness. We have a zero-tolerance policy on anonymity, insults and toxicity. But we always try to stay in touch with reality, so we're also not tolerant of witch hunting and call-out culture.
 
@@ -79,13 +79,13 @@ Three huge requests for everyone:
 
 - Please give kudos the original authors. "Works on vas3k.club engine" in the footer of your site will be enough.
 - Please share new features you implement with us, so other folks can also benefit from them, and your own codebase minimally diverges from the original one (so you can sync updates and security fixes) . Use our [feature-flags](club/features.py).
-- Do not use our issues and other official channels as a support desk. Use [chats](https://t.me/joinchat/T5DDOpAVcZwzODg0).
+- Do not use our issues and other official channels as a support desk. <!-- Use [chats](https://t.me/joinchat/T5DDOpAVcZwzODg0)-->
 
 > ♥️ [Feature-flags](club/features.py) are great. Use them to tweak your fork. Create new flags to upstream your new features or disable existing ones.
 
 ## 🙋‍♂️ How to report a bug?
 
-- 🆕Open [a new issue](https://github.com/vas3k/vas3k.club/issues/new). 
+- 🆕Open [a new issue](https://github.com/m-fedosov/vyshka.club/issues/new). 
 - 🔦 Please, **use a search**, to check, if there is already existed issue!
 - Explain your idea or proposal in all the details: 
     - Make sure you clearly describe "observed" and "expected" behaviour. It will dramatically save time for our contributors and maintainers. 
@@ -93,7 +93,7 @@ Three huge requests for everyone:
     
 ## 💎 Now to propose a new feature?
 
-- Go to our [Discussions](https://github.com/vas3k/vas3k.club/discussions)
+- Go to our [Discussions](https://github.com/m-fedosov/vyshka.club/discussions)
 - Check to see if someone else has already come up with the idea before
 - Create a new discussion
 - 🖼 If it's **UI/UX** related: attach a screenshot or wireframe
@@ -133,21 +133,22 @@ Here's our contribution guidelines — [CONTRIBUTING.md](CONTRIBUTING.md).
 
 #### 🟥 Questionable
 
-- [¯\\_(ツ)\_/¯](https://github.com/vas3k/vas3k.club/labels/%C2%AF%5C_%28%E3%83%84%29_%2F%C2%AF) - special label for **questionable issues**. (should be closed in 60 days of inactivity)
+- [¯\\_(ツ)\_/¯](https://github.com/m-fedosov/vyshka.club/labels/%C2%AF%5C_%28%E3%83%84%29_%2F%C2%AF) - special label for **questionable issues**. (should be closed in 60 days of inactivity)
 - **[no label]** — ticket is new, unclear or still not reviewed. Feel free to comment it but **wait for our maintainers' decision** before starting to implement it.
 
-<!-- 
+
 ## 🔐 Security and vulnerabilities
 
-If you think you've found a critical vulnerability that should not be exposed to the public yet, you can always email me directly on Telegram [@vas3k](https://t.me/vas3k) or by email: [me@vas3k.ru](mailto:me@vas3k.ru).
+If you think you've found a critical vulnerability that should not be exposed to the public yet, you can always email me directly on Telegram [@MFedos](https://t.me/mfedos) or by email: [me@vyshka.club](mailto:me@vyshka.club).
 
-Please do not test vulnerabilities in public. If you start spamming the website with "test-test-test" posts or comments, our moderators will ban you even if you had good intentions. -->
+Please do not test vulnerabilities in public. If you start spamming the website with "test-test-test" posts or comments, our moderators will ban you even if you had good intentions.
 
 
-<!-- ## 👍 Our top contributors
+## 👍 Our top contributors
 
-Take some time to press F and give some respects to our [best contributors](https://github.com/vas3k/vas3k.club/graphs/contributors), who spent their own time to make the club better.
+Take some time to press F and give some respects to our [best contributors](https://github.com/m-fedosov/vyshka.club/graphs/contributors), who spent their own time to make the club better.
 
+From vas3k.club:
 - [@vas3k](https://github.com/vas3k)
 - [@dimabory](https://github.com/dimabory)
 - [@devcooch](https://github.com/devcooch)
@@ -155,7 +156,11 @@ Take some time to press F and give some respects to our [best contributors](http
 - [@fr33mang](https://github.com/fr33mang)
 - [@Vostenzuk](https://github.com/Vostenzuk)
 - [@nikolay-govorov](https://github.com/nikolay-govorov)
-- [@FMajesty](https://github.com/FMajesty) -->
+- [@FMajesty](https://github.com/FMajesty)
+
+On your own:
+- [@m-fedosov](https://github.com/m-fedosov)
+- [@Maxim424](https://github.com/Maxim424)
 
 
 ## 👩‍💼 License 
@@ -164,6 +169,6 @@ Take some time to press F and give some respects to our [best contributors](http
 
 In other words, you can use the code for private and commercial purposes with an author attribution (by including the original license file or mentioning the Club 🎩).
 
-<!-- Feel free to contact us via email [club@vas3k.club](mailto:club@vas3k.club). -->
+Feel free to contact us via email [club@vyshka.club](mailto:club@vyshka.club).
 
 ❤️
