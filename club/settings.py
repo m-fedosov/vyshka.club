@@ -229,7 +229,7 @@ c+Ha7cw3U+n6KI4idHLiwa0CAwEAAQ==
 -----END PUBLIC KEY-----"""
 JWT_ALGORITHM = "RS256"
 
-MEDIA_UPLOAD_URL = "http://media.vyshka.club/upload/multipart/"
+MEDIA_UPLOAD_URL = "http://media.vyshka.club:8118/upload/multipart/"
 MEDIA_UPLOAD_CODE = os.getenv("MEDIA_UPLOAD_CODE")
 VIDEO_EXTENSIONS = {"mp4", "mov", "webm"}
 IMAGE_EXTENSIONS = {"jpg", "jpeg", "png", "gif"}
