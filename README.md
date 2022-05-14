@@ -31,7 +31,7 @@ Feel free to propose "state of the art" refactorings for UI or backend code if y
 2. Clone the repo
 
     ```sh
-    $ git clone https://github.com/m-fedosov/vyshka.club.git
+    $ git clone https://github.com/m-fedosov/vyshka.club
     $ cd vyshka.club
     ```
 
