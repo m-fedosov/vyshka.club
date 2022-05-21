@@ -6,7 +6,7 @@
 
 Welcome to the [vyshka.club](https://vyshka.club:8000) codebase. We're building our own little IT-lifestyle community. We've opensourced the code so that every member could contribute or implement a feature that they want.
 
-[vyshka.club](https://vyshka.club:8000) is a platform with a closed membership that has emerged around the university [HSE] (https://hse.ru) and satellite student communities. This community is about student lifestyle. The goal of the project is to unite students on one platform, and not in small groups of student organizations. Nevertheless, it is important that each member of the club is adequate and interesting. Therefore, we carefully select and filter new members and do not aim for wild growth.
+[vyshka.club](https://vyshka.club:8000) is a platform with a closed membership that has emerged around the university [HSE](https://hse.ru) and satellite student communities. This community is about student lifestyle. The goal of the project is to unite students on one platform, and not in small groups of student organizations. Nevertheless, it is important that each member of the club is adequate and interesting. Therefore, we carefully select and filter new members and do not aim for wild growth.
 
 Our values: honesty, fair share, respect for other members, rationality, friendliness and usefulness. We have a zero-tolerance policy on anonymity, insults and toxicity. But we always try to stay in touch with reality, so we're also not tolerant of witch hunting and call-out culture.
 
@@ -158,7 +158,7 @@ From vas3k.club:
 - [@nikolay-govorov](https://github.com/nikolay-govorov)
 - [@FMajesty](https://github.com/FMajesty)
 
-On your own:
+On our own:
 - [@m-fedosov](https://github.com/m-fedosov)
 - [@Maxim424](https://github.com/Maxim424)
 
