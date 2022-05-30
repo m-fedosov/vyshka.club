@@ -189,11 +189,12 @@
         </div>
 
         <div class="landing-block landing-block-map">
-            <div class="map-background" style="background-image: url('{% static "images/landing/map.jpg" %}');">
+            <div class="map-background" style="background-image: url('https://www.hse.ru/mirror/pubs/share/354030553?original=1');">
+            <!-- <div class="map-background" style="background-image: url('{% static "images/landing/map.jpg" %}');"> -->
             </div>
 
             <div class="map-container">
-                <div class="map-sidebar hide-on-iphone">
+                <!-- <div class="map-sidebar hide-on-iphone">
                     <div class="map-sidebar-item">📍 В моем городе</div>
                     <div class="map-sidebar-item map-sidebar-item-selected">🎉 Открыты к общению</div>
                     <div class="map-sidebar-item">🤟 Ищут друзей</div>
@@ -210,12 +211,13 @@
                     <div class="map-sidebar-item">🛋 Хочу удалёнку</div>
                     <div class="map-sidebar-item">🚜 Хочу релокацию</div>
                     <div class="map-sidebar-item">📱 FAANG</div>
-                </div>
+                </div> -->
 
                 <div class="map-counters">
+                    <div class="map-counter" style="background-color: #000; color: #fff">Клуб это</div>
                     <div class="map-counter">{{ stats.users }} {{ stats.users | rupluralize:"человек,человека,человек" }}</div>
                     <div class="map-counter">{{ stats.countries }} {{ stats.countries | rupluralize:"страна,страны,стран"  }}</div>
-                    <div class="map-counter">25+ чатов</div>
+                    <div class="map-counter">100+ студ. орг.</div>
                 </div>
             </div>
         </div>
