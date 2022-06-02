@@ -15,12 +15,12 @@ SECRET_KEY = os.getenv("SECRET_KEY") or "wow so secret"
 DEBUG = (os.getenv("DEBUG") != "false")  # SECURITY WARNING: don't run with debug turned on in production!
 TESTS_RUN = True if os.getenv("TESTS_RUN") else False
 
-ALLOWED_HOSTS = ["*", "127.0.0.1", "localhost", "0.0.0.0", "vas3k.club"]
+ALLOWED_HOSTS = ["*", "127.0.0.1", "localhost", "0.0.0.0", "vyhska.club"]
 INTERNAL_IPS = ["127.0.0.1"]
 
 ADMINS = [
     ("admin", "club@vyshka.club"),
-    ("vas3k", "me@vas3k.ru"),
+    ("miha", "me@vyshka.club"),
 ]
 
 INSTALLED_APPS = [
@@ -229,12 +229,12 @@ c+Ha7cw3U+n6KI4idHLiwa0CAwEAAQ==
 -----END PUBLIC KEY-----"""
 JWT_ALGORITHM = "RS256"
 
-MEDIA_UPLOAD_URL = "http://media.vyshka.club:8118/upload/multipart/"
+MEDIA_UPLOAD_URL = "https://i.vyshka.club/upload/multipart/"
 MEDIA_UPLOAD_CODE = os.getenv("MEDIA_UPLOAD_CODE")
 VIDEO_EXTENSIONS = {"mp4", "mov", "webm"}
 IMAGE_EXTENSIONS = {"jpg", "jpeg", "png", "gif"}
 
-OG_IMAGE_GENERATOR_URL = "https://og.vas3k.club/preview"
+OG_IMAGE_GENERATOR_URL = "https://og.vyshka.club/preview"
 OG_IMAGE_DEFAULT = "https://vas3k.club/static/images/share.png"
 OG_MACHINE_AUTHOR_LOGO = "https://vas3k.club/static/images/the_machine_logo.png"
 OG_IMAGE_GENERATOR_DEFAULTS = {
