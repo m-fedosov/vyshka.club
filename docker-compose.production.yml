@@ -1,29 +1,27 @@
-version: "3"
+version: "3.7"
+
 services:
   club_app: &app
-    image: ghcr.io/vas3k/club:${GITHUB_SHA:-latest}
+    build:
+      dockerfile: Dockerfile
+      context: .
     command: make docker-run-production
     container_name: club_app
     environment:
       - MODE=production
       - PYTHONUNBUFFERED=1
       - DEBUG=false
-      - APP_HOST=https://vas3k.club
-      - MEDIA_UPLOAD_URL=https://i.vas3k.club/upload/
-      - POSTGRES_DB=vas3k_club
-      - POSTGRES_USER=vas3k
-      - POSTGRES_PASSWORD=vas3k
+      - APP_HOST=https://vyshka.club
+      - MEDIA_UPLOAD_URL=https://i.vyshka.club/upload/
+      - POSTGRES_DB=vyshka_club
+      - POSTGRES_USER=vyshka
+      - POSTGRES_PASSWORD=vyshka
       - POSTGRES_HOST=postgres
       - REDIS_DB=0
       - REDIS_HOST=redis
-      - EMAIL_HOST
-      - EMAIL_PORT
-      - DEFAULT_FROM_EMAIL
-    env_file:
-      - .env
     restart: always
     volumes:
-      - ./frontend/static:/tmp/static
+      - ./frontend:/app/frontend/
       - ./gdpr/downloads:/app/gdpr/downloads
     depends_on:
       - postgres
@@ -67,11 +65,11 @@ services:
     container_name: club_postgres
     restart: always
     environment:
-      POSTGRES_USER: vas3k
-      POSTGRES_PASSWORD: vas3k
-      POSTGRES_DB: vas3k_club
+      POSTGRES_USER: vyshka
+      POSTGRES_PASSWORD: vyshka
+      POSTGRES_DB: vyshka_club
     volumes:
-      - /home/vas3k/pgdata:/var/lib/postgresql/data:rw
+      - /var/www/pgdata:/var/lib/postgresql/data:rw
     ports:
       - "127.0.0.1:54333:5432"
 
@@ -81,3 +79,19 @@ services:
     restart: always
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
+
+  pepic:
+    build: ../i.vyshka.club
+    container_name: pepic
+    environment: # check out pepic/config/app.go for more env variables
+      - BASE_URL=http://i.vyshka.club/
+      - STORAGE_DIR=/uploads
+      - SECRET_CODE=ths_is_a_secret
+      - IMAGE_ORIGINAL_LENGTH=1400
+      - MAX_UPLOAD_SIZE=100M
+    volumes:
+      - ../i.vyshka.club/uploads:/uploads
+    ports:
+      - 8118:8118
+    user: "1000" # set your real uid (by default only root can read the uploaded files)
+    restart: unless-stopped

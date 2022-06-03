@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-ENV MODE dev
+ENV MODE production
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
