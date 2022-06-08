@@ -10,12 +10,6 @@
         <form action="{% url "intro" %}" method="post" class="intro-form" enctype="multipart/form-data">
             <div class="form-title">Welcome to the Club! 👋</div>
 
-            <div class="block network-block" id="beta" style="background-color:#f96854;">
-                <div class="network-channels">
-                    <h2>Клуб сейчас работает в стадии бета, так что регистрация будет иметь смысл только если вы знакомы лично или косвенно с <b><a href="https://vk.com/hseblan">админом</a></b></h2>
-                </div>
-            </div>
-
             <div class="block-description" style="max-width: 100%;">
                 <p>
                     Ваш аккаунт создан и вы можете залетать к нам в <a href="{% url "network" %}" rel="noreferrer" target="_blank">чаты клуба</a> и подписываться на <a href="{{ settings.TELEGRAM_CLUB_CHANNEL_URL }}" rel="noreferrer" target="_blank">канал клуба</a> с лучшими постами.
