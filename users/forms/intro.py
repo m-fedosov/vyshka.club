@@ -57,12 +57,12 @@ class UserIntroForm(ModelForm):
         max_length=256,
     )
     company = forms.CharField(
-        label="Факультет",
+        label="Компания",
         required=True,
         max_length=128
     )
     position = forms.CharField(
-        label="На кого учитесь и/или должность в Вышке",
+        label="Должность или что вы делаете",
         required=True,
         max_length=128
     )
@@ -122,3 +122,4 @@ class UserIntroForm(ModelForm):
                 return slug
 
         raise ValidationError("Пользователь с таким ником уже существует. Выберите другой")
+        
