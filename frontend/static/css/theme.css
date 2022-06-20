@@ -17,7 +17,7 @@
 
 html, html[theme="light"] {
     --bg-color: #FCFDFF;
-    --opposite-bg-color: #2f2f2f;
+    --opposite-bg-color: #282c35;
 
     --text-color: #333;
     --brighter-text-color: #000;

@@ -1,13 +1,12 @@
 {% load text_filters %}
-<article class="block profile-card h-card" style="background-image: linear-gradient(45deg, #c802ff 0%, #0d49e1 50%, #00d4ff 100%);">
-
+<article class="block profile-card h-card">
     <div class="profile-card-photo u-photo">
         <div class="avatar profile-user-avatar"><img src="{{ user.get_avatar }}" alt="Аватар {{ user.full_name }}" loading="lazy" /></div>
     </div>
-    <div class="profile-card-info" style="color: #FFF;">
+    <div class="profile-card-info">
         <a href="{% url "profile" user.slug %}" class="profile-user-name u-url">
-            <span class="profile-user-fullname {% if user.is_banned or user.deleted_at %}user-name-is-banned{% endif %} p-name" style="color: #FFF;">{{ user.full_name }}</span>
-            <span class="profile-user-nickname p-nickname" style="color: #FFF;">@{{ user.slug }}</span>
+            <span class="profile-user-fullname {% if user.is_banned or user.deleted_at %}user-name-is-banned{% endif %} p-name">{{ user.full_name }}</span>
+            <span class="profile-user-nickname p-nickname">@{{ user.slug }}</span>
         </a>
 
         {% if user.position or user.company %}
