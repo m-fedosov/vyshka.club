@@ -120,7 +120,7 @@ class UserInfoAdminForm(ModelForm):
         required=True
     )
     company = forms.CharField(
-        label="Компания",
+        label="Факультет",
         required=False,
         max_length=128,
     )
@@ -130,7 +130,7 @@ class UserInfoAdminForm(ModelForm):
         max_length=128,
     )
     contact = forms.CharField(
-        label="Контакт для связи",
+        label="На кого учитесь и/или должность в Вышке",
         required=False,
         max_length=256,
     )

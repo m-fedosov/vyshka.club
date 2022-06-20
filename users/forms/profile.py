@@ -33,12 +33,12 @@ class ProfileEditForm(ModelForm):
         widget=forms.Textarea(attrs={"maxlength": 1024}),
     )
     company = forms.CharField(
-        label="Компания",
+        label="Факультет",
         required=True,
         max_length=128
     )
     position = forms.CharField(
-        label="Должность или что вы делаете",
+        label="На кого учитесь и/или должность в Вышке",
         required=True,
         max_length=128
     )
