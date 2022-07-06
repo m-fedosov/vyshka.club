@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('slug', models.CharField(db_index=True, max_length=128, unique=True)),
-                ('type', models.CharField(choices=[('post', 'Текст'), ('intro', '#intro'), ('link', 'Ссылка'), ('question', 'Вопрос'), ('pain', 'Расскажи где болит'), ('project', 'Проект'), ('referral', 'Рефералка'), ('battle', 'Батл')], db_index=True, default='post', max_length=32)),
+                ('type', models.CharField(choices=[('post', 'Текст'), ('intro', '#intro'), ('link', 'Студентам'), ('question', 'Вопрос'), ('pain', 'Расскажи где болит'), ('project', 'Проект'), ('referral', 'Рефералка'), ('battle', 'Батл')], db_index=True, default='post', max_length=32)),
                 ('label', django.contrib.postgres.fields.jsonb.JSONField(null=True)),
                 ('title', models.TextField()),
                 ('text', models.TextField()),
@@ -73,7 +73,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.UUIDField(db_index=True, default=uuid.uuid4, editable=False)),
                 ('slug', models.CharField(db_index=True, max_length=128)),
-                ('type', models.CharField(choices=[('post', 'Текст'), ('intro', '#intro'), ('link', 'Ссылка'), ('question', 'Вопрос'), ('pain', 'Расскажи где болит'), ('project', 'Проект'), ('referral', 'Рефералка'), ('battle', 'Батл')], db_index=True, default='post', max_length=32)),
+                ('type', models.CharField(choices=[('post', 'Текст'), ('intro', '#intro'), ('link', 'Студентам'), ('question', 'Вопрос'), ('pain', 'Расскажи где болит'), ('project', 'Проект'), ('referral', 'Рефералка'), ('battle', 'Батл')], db_index=True, default='post', max_length=32)),
                 ('label', django.contrib.postgres.fields.jsonb.JSONField(null=True)),
                 ('title', models.TextField()),
                 ('text', models.TextField()),

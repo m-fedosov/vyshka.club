@@ -33,7 +33,7 @@ class Post(models.Model, ModelDiffMixin):
     TYPES = [
         (TYPE_POST, "Текст"),
         (TYPE_INTRO, "#intro"),
-        (TYPE_LINK, "Ссылка"),
+        (TYPE_LINK, "Студентам"),
         (TYPE_QUESTION, "Вопрос"),
         (TYPE_IDEA, "Идея"),
         (TYPE_PROJECT, "Проект"),
@@ -41,14 +41,14 @@ class Post(models.Model, ModelDiffMixin):
         (TYPE_REFERRAL, "Рефералка"),
         (TYPE_BATTLE, "Батл"),
         (TYPE_WEEKLY_DIGEST, "Журнал Клуба"),
-        (TYPE_GUIDE, "Путеводитель"),
-        (TYPE_THREAD, "Тред"),
+        (TYPE_GUIDE, "Адаптация"),
+        (TYPE_THREAD, "Флуд"),
     ]
 
     TYPE_TO_EMOJI = {
         TYPE_POST: "📝",
         TYPE_INTRO: "🙋‍♀️",
-        TYPE_LINK: "🔗",
+        TYPE_LINK: "🎫",
         TYPE_QUESTION: "❓",
         TYPE_IDEA: "💡",
         TYPE_PROJECT: "🏗",
@@ -69,8 +69,8 @@ class Post(models.Model, ModelDiffMixin):
         TYPE_EVENT: "Событие:",
         TYPE_REFERRAL: "Рефералка:",
         TYPE_BATTLE: "Батл:",
-        TYPE_GUIDE: "🗺",
-        TYPE_THREAD: "Тред:",
+        TYPE_GUIDE: "🤯",
+        TYPE_THREAD: "Флудилка:",
     }
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)

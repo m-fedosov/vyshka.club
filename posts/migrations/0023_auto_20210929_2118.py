@@ -23,11 +23,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='historicalpost',
             name='type',
-            field=models.CharField(choices=[('post', 'Текст'), ('intro', '#intro'), ('link', 'Ссылка'), ('question', 'Вопрос'), ('pain', 'Боль'), ('idea', 'Идея'), ('project', 'Проект'), ('event', 'Событие'), ('referral', 'Рефералка'), ('battle', 'Батл'), ('weekly_digest', 'Журнал Клуба'), ('guide', 'Путеводитель'), ('thread', 'Тред')], db_index=True, default='post', max_length=32),
+            field=models.CharField(choices=[('post', 'Текст'), ('intro', '#intro'), ('link', 'Студентам'), ('question', 'Вопрос'), ('pain', 'Боль'), ('idea', 'Идея'), ('project', 'Проект'), ('event', 'Событие'), ('referral', 'Рефералка'), ('battle', 'Батл'), ('weekly_digest', 'Журнал Клуба'), ('guide', 'Адаптация'), ('thread', 'Флуд')], db_index=True, default='post', max_length=32),
         ),
         migrations.AlterField(
             model_name='post',
             name='type',
-            field=models.CharField(choices=[('post', 'Текст'), ('intro', '#intro'), ('link', 'Ссылка'), ('question', 'Вопрос'), ('pain', 'Боль'), ('idea', 'Идея'), ('project', 'Проект'), ('event', 'Событие'), ('referral', 'Рефералка'), ('battle', 'Батл'), ('weekly_digest', 'Журнал Клуба'), ('guide', 'Путеводитель'), ('thread', 'Тред')], db_index=True, default='post', max_length=32),
+            field=models.CharField(choices=[('post', 'Текст'), ('intro', '#intro'), ('link', 'Студентам'), ('question', 'Вопрос'), ('pain', 'Боль'), ('idea', 'Идея'), ('project', 'Проект'), ('event', 'Событие'), ('referral', 'Рефералка'), ('battle', 'Батл'), ('weekly_digest', 'Журнал Клуба'), ('guide', 'Адаптация'), ('thread', 'Флуд')], db_index=True, default='post', max_length=32),
         ),
     ]
