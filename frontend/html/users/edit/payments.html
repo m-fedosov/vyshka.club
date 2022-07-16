@@ -3,144 +3,23 @@
 {% load text_filters %}
 
 {% block title %}
-    Клубные взносы — {{ block.super }}
+    Вышка.Клуб - share
 {% endblock %}
 
 {% block content %}
-    <div class="content user-edit">
-        <div class="form-title">🎩<br>Клубные взносы</div>
-
-        <div class="block-subheader">
-            Клубная карта активна до <strong>{{ me.membership_expires_at | date:"j E Y" }}</strong> — это <span class="badge-price">💎 {{ me.membership_days_left|floor }} {{ me.membership_days_left|rupluralize:"день,дня,дней" }}</span>
+    <div class="content profile">
+        <div class="block profile-intro profile-header">
+                <div>
+                    <h2>🔗 Поделись ссылкой на Клуб, используя QR-код</h2>
+                    <h3>
+                        Это поможет нам объединить Вышку в единое сообщество!
+                    </h3>
+                </div>
+        </div>
+        <div class="block profile-intro profile-header">
+                <img src="{% static "images/qr/qr-code-big.png" %}" alt="">
         </div>
 
-        {% if me.membership_platform_type == "patreon" %}
-            <div class="block pay-subscription">
-                🙂 Подключён <a href="https://www.patreon.com/vas3k" target="_blank">Patreon</a>.
-                Рекомендуем по возможности перейти на прямую оплату ниже.
-            </div>
-        {% else %}
-            {% if not subscriptions %}
-                <div class="block pay-subscription">Автопродление отключено 😟</div>
-            {% endif %}
-        {% endif %}
-
-        {% for subscription in subscriptions %}
-            <div class="block pay-subscription">
-                🔥 Включено автопополнение на <strong>€{{ subscription.amount | floatformat }}</strong> каждый
-                {% if subscription.interval == "month" %}
-                    месяц <strong>{{ subscription.next_charge_at | date:"j" }} числа</strong>
-                {% else %}
-                    год <strong>{{ subscription.next_charge_at | date:"j E" }}</strong>
-                {% endif %}
-
-                <br><br>
-
-                <a href="{% url "stop_subscription" subscription.id %}" class="button button-small" onclick="return confirm('Точно отключаем?')">Отключить</a>
-            </div>
-        {% endfor %}
-
-        <div class="block-description block-description-center">
-            О любых проблемах с оплатой сразу пишите на <a href="mailto:monies@vas3k.club">monies@vas3k.club</a>.<br>
-            Мы можем исправить или откатить любую транзакцию, так что не волнуйтесь.
-        </div>
-
-        <form action="{% url "pay" %}" method="get">
-
-        <div class="block-header" id="select_package">На сколько еще пополняем?</div>
-
-        <br>
-
-        {% include "payments/blocks/packages.html" %}
-
-        <button type="submit" class="button button-big join-button">Продлить членство 🤙</button>
-
-        </form>
-
-        <br><br>
-
-        <div class="block-description block-description-center">
-            Пополняйте когда вам удобно — новые дни будут просто суммироваться.
-        </div>
-
-        <div class="block-description block-description-center">
-            Даже годовые подписки можно покупать каждый месяц — это специальная фича для диких, кто хочет еще больше поддерживать Клуб!
-        </div>
-
-        <div class="block-header" style="max-width: 600px; margin-top: 100px;">🏅<br>А чтобы было веселее, вот топ членов Клуба с самой длинной подпиской</div>
-
-        <div class="block-description">
-            Все собранные взносы идут на развитие Клуба, поэтому если вам хочется поддержать или отблагодарить Клуб за помощь,
-            лучший способ это сделать — продлить свою карту ещё на пару тысяч лет вперёд :D
-        </div>
     </div>
 
-    <div class="block stats-top-users">
-        <div class="top-users">
-            {% for user in top_users|slice:"0:5" %}
-                <a href="{% url "profile" user.slug %}" class="top-user top-user-big">
-                    <span class="top-user-avatar-badge">🏆</span>
-                    <span class="avatar top-user-avatar">
-                        <img src="{{ user.get_avatar }}" alt="Аватар {{ user.full_name }}" loading="lazy" />
-                    </span>
-                    <span class="top-user-name">#{{ forloop.counter }}: {{ user.full_name }}</span>
-                    <span class="top-user-info">до {{ user.membership_expires_at | date:"E Y" }} года</span>
-                </a>
-            {% endfor %}
-        </div>
-
-        <div class="top-users">
-            {% for user in top_users|slice:"5:25" %}
-                <a href="{% url "profile" user.slug %}" class="top-user top-user-medium">
-                    <span class="avatar top-user-avatar">
-                        <img src="{{ user.get_avatar }}" alt="Аватар {{ user.full_name }}" loading="lazy" />
-                    </span>
-                    <span class="top-user-name">#{{ forloop.counter|add:5 }}: {{ user.full_name }}</span>
-                    <span class="top-user-info">{{ user.membership_expires_at | date:"F Y" | lower }}</span>
-                </a>
-            {% endfor %}
-        </div>
-
-        <div class="top-users">
-            {% for user in top_users|slice:"25:64" %}
-                <a href="{% url "profile" user.slug %}" class="top-user top-user-small" title="до {{ user.membership_expires_at | date:"E Y" }} года">
-                    <span class="avatar top-user-avatar">
-                        <img src="{{ user.get_avatar }}" alt="Аватар {{ user.full_name }}" loading="lazy" />
-                    </span>
-                </a>
-            {% endfor %}
-        </div>
-    </div>
-
-    <div class="content user-edit" id="invite">
-        <div class="block-header">💌<br>Пригласить друга</div>
-
-        <div class="block-description block-description-center">
-            У вас есть хороший знакомый, который тоже хочет в Клуб, но не может заплатить долор?
-        </div>
-
-        <div class="block-description block-description-center">
-            Здесь вы можете ввести почту любого человека и подарить ему аккаунт на год!
-            Не забудьте предупредить друга, что собираетесь выслать ему инвайт, ведь интро ему всё равно придётся написать самостоятельно.
-        </div>
-
-        <div class="block invite-friend">
-            <form action="{% url "pay" %}" method="get">
-                {% csrf_token %}
-                <input type="hidden" name="product_code" value="club1_invite">
-                <input type="hidden" name="is_invite" value="true">
-
-                <label>
-                    <strong>Адрес почты</strong>
-                    <input type="email" name="email" placeholder="friend@gmail.com" required>
-                </label>
-
-                <button type="submit" class="button">Позвать в Клуб</button>
-            </form>
-        </div>
-
-        <div class="block-description block-description-center">
-            💡 <strong>Лайфхак:</strong> указав здесь почту существующего члена Клуба, вы продлите ему аккаунт. Только спросите его точный адрес.
-        </div>
-    </div>
 {% endblock %}
