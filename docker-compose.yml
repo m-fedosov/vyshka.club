@@ -11,9 +11,9 @@ services:
       - MODE=dev
       - DEBUG=true
       - PYTHONUNBUFFERED=1
-      - POSTGRES_DB=vas3k_club
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=vyshka_club
+      - POSTGRES_USER=vyshka
+      - POSTGRES_PASSWORD=vyshka
       - POSTGRES_HOST=postgres
       - REDIS_DB=0
       - REDIS_HOST=redis
@@ -37,9 +37,9 @@ services:
       - MODE=dev
       - DEBUG=true
       - PYTHONUNBUFFERED=1
-      - POSTGRES_DB=vas3k_club
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=vyshka_club
+      - POSTGRES_USER=vyshka
+      - POSTGRES_PASSWORD=vyshka
       - POSTGRES_HOST=postgres
       - REDIS_DB=0
       - REDIS_HOST=redis
@@ -78,9 +78,9 @@ services:
     image: postgres:11
     container_name: club_postgres
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=vas3k_club
+      - POSTGRES_USER=vyshka
+      - POSTGRES_PASSWORD=vyshka
+      - POSTGRES_DB=vyshka_club
     ports:
       - "5432:5432"
 
@@ -98,3 +98,7 @@ services:
     volumes:
       - .:/app:delegated
     working_dir: /app/frontend
+
+networks:
+  default:
+    name: vyshka_network

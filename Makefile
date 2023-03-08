@@ -62,7 +62,7 @@ test-ci:   ## Run tests (intended for CI usage)
 	python3 manage.py test
 
 psql:
-	psql -h localhost -p 5433 -d vas3k_club -U vas3k
+	psql -h localhost -p 5433 -d vyshka_club -U vyshka
 
 .PHONY: \
   docker-run-dev \
