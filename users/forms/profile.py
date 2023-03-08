@@ -30,12 +30,17 @@ class ProfileEditForm(ModelForm):
         label="Ссылочки на себя и всякое такое",
         required=True,
         max_length=1024,
-        widget=forms.Textarea(attrs={"maxlength": 1024}),
+        widget=forms.Textarea(
+                    attrs={
+                        "maxlength": 1024,
+                        "placeholder": "не обязательно"
+                    }
+                ),
     )
-    company = forms.CharField(
-        label="Компания",
-        required=True,
-        max_length=128
+    company = forms.ChoiceField(
+        label="Факультет",
+        choices=FACULTIES,
+        required=True
     )
     position = forms.CharField(
         label="Должность или что вы делаете",

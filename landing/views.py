@@ -27,7 +27,7 @@ def landing(request):
         stats = {
             "users": User.registered_members().count(),
             "countries": User.registered_members().values("country")
-            .annotate(total=Count("country")).order_by().count() + 1,
+            .annotate(total=Count("country")).order_by().count(),
         }
         cache.set("landing_stats", stats, settings.LANDING_CACHE_TIMEOUT)
 

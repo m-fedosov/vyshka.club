@@ -6,8 +6,13 @@
 # Hide posts feed (main page) from unauthorized users
 #   True — feed is only visible to club members, other users will be redirected to landing page
 #   False — everyone can view the feed, it becomes the main page
-PRIVATE_FEED = True
+PRIVATE_FEED = False
 
 # Enable auth and payment via Patreon
 #   See settings.py for more configs (PATREON_ - prefixed)
-PATREON_AUTH_ENABLED = True
+PATREON_AUTH_ENABLED = False
+
+# Enable Free membership
+#   True - Free registration
+#   False - Paid registration
+FREE_MEMBERSHIP = True

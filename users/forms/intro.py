@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 
 from common.data.countries import COUNTRIES
+from common.data.faculties import FACULTIES
 from users.models.user import User
 from common.forms import ImageUploadField
 
@@ -46,18 +47,28 @@ class UserIntroForm(ModelForm):
         required=True
     )
     bio = forms.CharField(
-        label="Контакты, соцсети и краткое био",
-        required=True,
+        label="Ссылочки на себя и всякое такое",
+        required=False,
         max_length=1024,
-        widget=forms.Textarea(attrs={"maxlength": 1024}),
+        widget=forms.Textarea(
+            attrs={
+                "maxlength": 1024,
+                "placeholder": "не обязательно"
+            }
+        ),
     )
-    company = forms.CharField(
-        label="Компания",
+    contact = forms.CharField(
+        label="Контакт для связи",
         required=True,
-        max_length=128
+        max_length=256,
+    )
+    company = forms.ChoiceField(
+        label="Факультет",
+        choices=FACULTIES,
+        required=True
     )
     position = forms.CharField(
-        label="Должность или что вы делаете",
+        label="На кого учитесь и/или должность в Вышке",
         required=True,
         max_length=128
     )
@@ -67,7 +78,7 @@ class UserIntroForm(ModelForm):
         widget=forms.Textarea(
             attrs={
                 "maxlength": 10000,
-                "minlength": 600,
+                "minlength": 100,
                 "placeholder": "Расскажите Клубу о себе...",
             }
         ),
@@ -95,6 +106,7 @@ class UserIntroForm(ModelForm):
             "city",
             "country",
             "bio",
+            "contact",
             "email_digest_type",
         ]
 

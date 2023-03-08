@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from uuid import uuid4
 
+from club import features
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
@@ -10,13 +11,16 @@ from users.models.geo import Geo
 from common.models import ModelDiffMixin
 from utils.slug import generate_unique_slug
 from utils.strings import random_string
+from random import randint
 
 
 class User(models.Model, ModelDiffMixin):
+    MEMBERSHIP_PLATFORM_FREE = "free"
     MEMBERSHIP_PLATFORM_DIRECT = "direct"
     MEMBERSHIP_PLATFORM_PATREON = "patreon"
     MEMBERSHIP_PLATFORM_CRYPTO = "crypto"
     MEMBERSHIP_PLATFORMS = [
+        (MEMBERSHIP_PLATFORM_FREE, "Free"),
         (MEMBERSHIP_PLATFORM_DIRECT, "Direct"),
         (MEMBERSHIP_PLATFORM_PATREON, "Patreon"),
         (MEMBERSHIP_PLATFORM_CRYPTO, "Crypto"),
@@ -83,7 +87,7 @@ class User(models.Model, ModelDiffMixin):
     membership_expires_at = models.DateTimeField(null=False)
     membership_platform_type = models.CharField(
         max_length=128, choices=MEMBERSHIP_PLATFORMS,
-        default=MEMBERSHIP_PLATFORM_PATREON, null=False
+                default=MEMBERSHIP_PLATFORM_FREE if features.FREE_MEMBERSHIP else MEMBERSHIP_PLATFORM_PATREON, null=False
     )
     patreon_id = models.CharField(max_length=128, null=True, unique=True)
     membership_platform_data = models.JSONField(null=True)
@@ -167,6 +171,29 @@ class User(models.Model, ModelDiffMixin):
 
     def get_avatar(self):
         return self.avatar or settings.DEFAULT_AVATAR
+
+    def get_sum_from_slug(self):
+        sum = 0
+        for ch in self.slug:
+            sum += ord(ch)
+        return sum
+
+    def get_red_from_sum(self):
+        sum = self.get_sum_from_slug()
+        sum %= 256
+        if sum < 86:
+            sum = 0
+        return sum
+
+    def get_green_from_sum(self):
+        sum = self.get_sum_from_slug()
+        sum = (sum*(1024 - sum % 256)) % 256
+        return sum
+
+    def get_blue_from_sum(self):
+        sum = self.get_sum_from_slug()
+        sum = (sum*(424 - sum % 256)) % 256
+        return sum
 
     @property
     def is_banned(self):

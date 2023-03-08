@@ -24,9 +24,6 @@ class Badge(models.Model):
         db_table = "badges"
         ordering = ["price_days", "code"]
 
-    def __str__(self):
-        return f"Badge: {self.code}"
-
     @classmethod
     def visible_objects(cls):
         return cls.objects.filter(is_visible=True)
@@ -60,13 +57,12 @@ class UserBadge(models.Model):
                 message="Это что такое-то вообще!"
             )
 
-        if badge.price_days >= from_user.membership_days_left():
+        # if badge.price_days >= from_user.membership_days_left():
+        if badge.price_days > 0:
             raise InsufficientFunds(
                 title="💸 Недостаточно средств :(",
-                message=f"Вы не можете подарить юзеру эту награду, "
-                        f"так как у вас осталось {math.floor(from_user.membership_days_left())} дней членства, "
-                        f"а награда стоит {badge.price_days}. "
-                        f"Продлите членство в настройках своего профиля."
+                message=f"Вы не можете подарить юзеру эту награду! "
+                        f"Мы же сказали, что фича всё ещё в разработке :)"
             )
 
         with transaction.atomic():
@@ -90,7 +86,7 @@ class UserBadge(models.Model):
             User.objects\
                 .filter(id=from_user.id)\
                 .update(
-                    membership_expires_at=F("membership_expires_at") - timedelta(days=badge.price_days)
+                    membership_expires_at=F("membership_expires_at")
                 )
 
             # add badge to post/comment metadata (for caching purposes)

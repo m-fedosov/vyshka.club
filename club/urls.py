@@ -6,7 +6,7 @@ from django.views.generic import RedirectView
 
 from authn.helpers import auth_switch
 from authn.views.auth import login, logout, debug_dev_login, debug_random_login, debug_login, join
-from authn.views.email import email_login, email_login_code
+from authn.views.email import email_login, email_login_code, email_auth
 from authn.views.external import external_login
 from authn.views.patreon import patreon_login, patreon_oauth_callback
 from badges.views import create_badge_for_post, create_badge_for_comment
@@ -66,6 +66,7 @@ urlpatterns = [
     ), name="landing"),
 
     path("join/", join, name="join"),
+    path("join/done/", email_auth, name="email_auth"),
     path("auth/login/", login, name="login"),
     path("auth/logout/", logout, name="logout"),
     path("auth/patreon/", patreon_login, name="patreon_login"),

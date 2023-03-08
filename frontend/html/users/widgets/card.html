@@ -1,10 +1,10 @@
 {% load text_filters %}
-<article class="block profile-card h-card">
+<article class="block profile-card h-card" style="background-image: linear-gradient(45deg, rgba({{ user.get_red_from_sum }}, {{ user.get_green_from_sum }}, {{ user.get_blue_from_sum }}, 1) 5%, rgba(26,71,182, 1) 100%);">
     <div class="profile-card-photo u-photo">
         <div class="avatar profile-user-avatar"><img src="{{ user.get_avatar }}" alt="Аватар {{ user.full_name }}" loading="lazy" /></div>
     </div>
-    <div class="profile-card-info">
-        <a href="{% url "profile" user.slug %}" class="profile-user-name u-url">
+    <div class="profile-card-info" style="color: #FFF">
+        <a href="{% url "profile" user.slug %}" class="profile-user-name u-url" style="color: #FFF">
             <span class="profile-user-fullname {% if user.is_banned or user.deleted_at %}user-name-is-banned{% endif %} p-name">{{ user.full_name }}</span>
             <span class="profile-user-nickname p-nickname">@{{ user.slug }}</span>
         </a>
@@ -29,7 +29,7 @@
         {% endif %}
 
         {% if user.bio %}
-            <div class="profile-user-bio">
+            <div class="profile-user-bio" style="--opposite-text-color: #FFF;">
                 {{ user.bio | markdown }}
             </div>
         {% endif %}
