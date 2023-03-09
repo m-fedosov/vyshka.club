@@ -3,11 +3,11 @@ import random
 from datetime import timedelta, datetime
 
 import sentry_sdk
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
 
-load_dotenv()
+load_dotenv(find_dotenv())
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
