@@ -2,7 +2,8 @@ FROM ubuntu:20.04
 ENV MODE dev
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update \
+RUN apt-get clean  \
+    && apt-get update \
     && apt-get install --no-install-recommends -yq \
       build-essential \
       python3 \
