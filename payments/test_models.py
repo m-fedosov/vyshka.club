@@ -12,6 +12,8 @@ from payments import products
 from payments.products import PRODUCTS
 from users.models.user import User
 
+from unittest import skip
+
 
 class TestPaymentModel(TestCase):
     @classmethod
