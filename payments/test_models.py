@@ -77,6 +77,7 @@ class TestPaymentModel(TestCase):
                                     data={"some": "data"})
 
 
+@skip("Free membership")
 class TestProducts(TestCase):
 
     def test_club_subscription_activator_positive_membership_expires_in_future(self):

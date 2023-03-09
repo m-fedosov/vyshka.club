@@ -38,7 +38,7 @@ class ViewsAuthTests(TestCase):
     def test_join_anonymous(self):
         response = self.client.get(reverse('join'))
         # check auth/join.html is rendered
-        self.assertContains(response=response, text="Всегда рады новым членам", status_code=200)
+        self.assertContains(response=response, text="Welcome to the Club", status_code=200)
 
     def test_join_authorised(self):
         self.client.authorise()

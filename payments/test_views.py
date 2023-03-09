@@ -65,6 +65,7 @@ class TestMembershipExpiredView(TestCase):
         self.assertRedirects(response=response, expected_url=f'/', fetch_redirect_response=False)
 
 
+@skip("Free membership")
 class TestDoneView(TestCase):
 
     def setUp(self):
