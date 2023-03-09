@@ -84,7 +84,7 @@ def people(request):
     users_total = users.count()
 
     map_stat_groups = {
-        "🦚 Топ факультетов": top(users, "company", skip={"-"})[:5],
+        "🦚 Факультеты": top(users, "company", skip={"-"})[:5],
         "🌍 Страны": top(users, "country")[:5],
         "🏰 Города": top(users, "city")[:5],
     }

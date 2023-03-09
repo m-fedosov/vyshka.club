@@ -4,6 +4,7 @@ from django.forms import ModelForm
 
 from common.data.countries import COUNTRIES
 from common.data.expertise import EXPERTISE
+from common.data.faculties import FACULTIES
 from users.models.user import User
 from users.models.expertise import UserExpertise
 from common.forms import ImageUploadField
