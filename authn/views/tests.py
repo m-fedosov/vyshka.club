@@ -167,6 +167,7 @@ class ViewEmailLoginTests(TestCase):
         # it's not yet authorised, only code was sent
         self.assertFalse(self.client.is_authorised())
 
+    @skip("Free membership")
     def test_login_user_not_exist(self):
         response = self.client.post(reverse('email_login'),
                                     data={'email_or_login': 'not-existed@user.com', })
@@ -342,7 +343,7 @@ class ViewExternalLoginTests(TestCase):
 
         self.assertFalse(self.client.is_authorised())
 
-
+@skip("Free membership. Skip Pateron login")
 class ViewPatreonLoginTests(TestCase):
     def test_positive(self):
         with self.settings(PATREON_CLIENT_ID="x-client_id",
@@ -353,7 +354,7 @@ class ViewPatreonLoginTests(TestCase):
                                  expected_url='https://www.patreon.com/oauth2/authorize?client_id=x-client_id&redirect_uri=http%3A%2F%2Fx-redirect_url.com&response_type=code&scope=x-scope',
                                  fetch_redirect_response=False)
 
-
+@skip('Free membership. Skip Pateron login')
 @patch('authn.views.patreon.patreon')
 class ViewPatreonOauthCallbackTests(TestCase):
     @classmethod
